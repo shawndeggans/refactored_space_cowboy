@@ -1,0 +1,31 @@
+
+catalogs:
+  - name: main
+    tags:
+      Environment: Production
+      Department: Engineering
+      
+schemas:
+  - catalog: main
+    name: sales
+    tags:
+      DataDomain: Revenue
+      Owner: Finance
+      
+tables:
+  - catalog: main
+    schema: sales
+    name: transactions
+    tags:
+      UpdateFrequency: Daily
+      Retention: 5Years
+      BusinessCritical: True
+    columns:
+      - name: customer_id
+        tags:
+          PII_TYPE: IDENTIFIER
+          JOIN_KEY: True
+      - name: email
+        tags:
+          PII_TYPE: EMAIL
+          SENSITIVITY: HIGH
